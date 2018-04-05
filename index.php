@@ -35,42 +35,59 @@ foreach ($animals_2_words as $country => $animals) {
 
 
 
-
 <?php
-//$animals = [
-//    'Algeria' => 'Fennec fox',
-//    'Anguilla' => 'Zenaida dove',
-//    'Argentina' => 'Rufous hornero',
-//    'Bhutan' => 'Takin',
-//    'Cambodia' => 'Kouprey',
-//    'China' => 'Giant panda',
-//    'Canada' => 'Canadian horse',
-//    'Croatia' => 'Pine marten',
-//    'Ethiopia' => 'Lion',
-//    'Finland' => 'Brown bear',
-//
-//
-//    'Greece' => 'Dolphins',
-//    'Haiti' => 'Hispaniolan Trogan',
-//    'Japan' => 'Carp',
-//    'Oman' => 'Arabian oryx',
-//    'Romania' => 'Lynx',
-//];
-//
-//echo '<pre>';
-//print_r($animals);
-//
-//$animals_2_words = array();
-//
-//foreach ($animals as $country => $animal) {
-//    if (strpos($animal, ' ') !== false) {
-//        array_push($animals_2_words, $animal);
-//        echo $country." ".$animal."\n";
-//    }
-//}
-//
-//print_r($animals_2_words);
-//print_r($animals);
-//?>
+
+echo "<h1>Version-2</h1>";
+
+$animals = [
+    'Algeria' => 'Fennec fox',
+    'Anguilla' => 'Zenaida dove',
+    'Argentina' => 'Rufous hornero',
+    'Bhutan' => 'Takin',
+    'Cambodia' => 'Kouprey',
+    'China' => 'Giant panda',
+    'Canada' => 'Canadian horse',
+    'Croatia' => 'Pine marten',
+    'Ethiopia' => 'Lion',
+    'Finland' => 'Brown bear',
+
+
+    'Greece' => 'Dolphins',
+    'Haiti' => 'Hispaniolan Trogan',
+    'Japan' => 'Carp',
+    'Oman' => 'Arabian oryx',
+    'Romania' => 'Lynx',
+];
+
+echo '<pre>';
+print_r($animals);
+
+$animals_2 = array();
+
+foreach ($animals as $country => $animal) {
+    if (strpos($animal, ' ') !== false) {
+        array_push($animals_2, $animal);
+        echo "<h2>$country</h2>";
+        echo $animal."\n";
+    }
+}
+
+$tK = $rV = [];
+foreach($_=$animals_2 as $k=>$v) {
+    if ( preg_match('~(.*?)\s(.*)~', trim($v), $m) ) {
+        unset($animals_2[$k]);
+        $tK[] = $m[1];
+        $tV[] = $m[2];
+    }
+}
+shuffle($tK);
+shuffle($tV);
+foreach($tK as $k=>$v) {
+    $animals_2[] = $v . " " . $tV[$k];
+}
+
+print_r($animals_2);
+
+?>
 
 
