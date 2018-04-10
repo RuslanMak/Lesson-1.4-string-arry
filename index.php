@@ -1,7 +1,7 @@
 <?php
 
 $countrys = [
-    'Canada' => ['Canadian horse', 'North American beaver'],
+    'Canada' => ['Canadian horse', 'American beaver'],
     'Finland' => ['Brown bear', 'Holly blue'],
     'Iraq' => ['Chukar partridge', 'Goat'],
     'Japan' => ['Green pheasant', 'Carp'],
@@ -11,83 +11,32 @@ $countrys = [
 echo '<pre>';
 print_r($countrys);
 
-$animals_2_words = array();
-
-foreach ($countrys as $country => $animals) {
-    $animals_2_words[$country] = preg_grep ("~\s{1}~",$animals);
-}
-
-foreach ($animals_2_words as $country => $animals) {
-    foreach ($animals as $animal) {
-        echo "<h2>$country</h2>";
-        echo $animal . "<br>";
-    }
-}
-
-foreach ($animals_2_words as $country => $animals) {
-    foreach ($animals as $animal) {
-        $words = explode(" ", $animal);
-        shuffle($words);
-        echo implode(", ", $words);
-    }
-}
-?>
-
-
-
-<?php
-
-echo "<h1>Version-2</h1>";
-
-$animals = [
-    'Algeria' => 'Fennec fox',
-    'Anguilla' => 'Zenaida dove',
-    'Argentina' => 'Rufous hornero',
-    'Bhutan' => 'Takin',
-    'Cambodia' => 'Kouprey',
-    'China' => 'Giant panda',
-    'Canada' => 'Canadian horse',
-    'Croatia' => 'Pine marten',
-    'Ethiopia' => 'Lion',
-    'Finland' => 'Brown bear',
-
-
-    'Greece' => 'Dolphins',
-    'Haiti' => 'Hispaniolan Trogan',
-    'Japan' => 'Carp',
-    'Oman' => 'Arabian oryx',
-    'Romania' => 'Lynx',
-];
-
-echo '<pre>';
-print_r($animals);
-
 $animals_2 = array();
 
-foreach ($animals as $country => $animal) {
-    if (strpos($animal, ' ') !== false) {
-        array_push($animals_2, $animal);
-        echo "<h2>$country</h2>";
-        echo $animal."\n";
+foreach ($countrys as $country => $animals) {
+    foreach ($animals as $animal) {
+        if (strpos($animal, ' ')) {
+//            echo "<h2>$country</h2>";
+//            echo $animal;
+            echo "<h2>$country</h2>";
+            $a = list($word1[], $word2[]) = explode(' ', $animal);
+                shuffle($word2);
+            foreach ($word1 as $key => $word) {
+                array_shift($word1);
+                echo $word . " " . $word2[$key] . "\n";
+            }
+        }
     }
 }
-
-$tK = $rV = [];
-foreach($_=$animals_2 as $k=>$v) {
-    if ( preg_match('~(.*?)\s(.*)~', trim($v), $m) ) {
-        unset($animals_2[$k]);
-        $tK[] = $m[1];
-        $tV[] = $m[2];
-    }
-}
-shuffle($tK);
-shuffle($tV);
-foreach($tK as $k=>$v) {
-    $animals_2[] = $v . " " . $tV[$k];
-}
-
-print_r($animals_2);
-
+//print_r($countrys);
+print_r($word2);
+//echo $word1 . "\n";
+//for ($i=0; $i<count($word1); $i++ ) {
+//    echo $word1[$i] . " ";
+//}
+//for ($i=0; $i<count($word2); $i++ ) {
+//    echo $word2[$i] . " ";
+//}
 ?>
 
 
