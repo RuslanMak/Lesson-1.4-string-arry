@@ -9,9 +9,7 @@ $countrys = [
 ];
 
 echo '<pre>';
-print_r($countrys);
-
-$animals_2 = array();
+//print_r($countrys);
 
 foreach ($countrys as $country => $animals) {
     foreach ($animals as $animal) {
@@ -19,7 +17,7 @@ foreach ($countrys as $country => $animals) {
 //            echo "<h2>$country</h2>";
 //            echo $animal;
             echo "<h2>$country</h2>";
-            $a = list($word1[], $word2[]) = explode(' ', $animal);
+            list($word1[], $word2[]) = explode(' ', $animal);
                 shuffle($word2);
             foreach ($word1 as $key => $word) {
                 array_shift($word1);
@@ -28,15 +26,6 @@ foreach ($countrys as $country => $animals) {
         }
     }
 }
-//print_r($countrys);
-print_r($word2);
-//echo $word1 . "\n";
-//for ($i=0; $i<count($word1); $i++ ) {
-//    echo $word1[$i] . " ";
-//}
-//for ($i=0; $i<count($word2); $i++ ) {
-//    echo $word2[$i] . " ";
-//}
 ?>
 
 
