@@ -11,6 +11,10 @@ $countries = [
 echo '<pre>';
 //print_r($countries);
 
+$word1 = [];
+$word2 = [];
+$countries2 = [];
+
 foreach ($countries as $country => $animals) {
     foreach ($animals as $animal) {
         $space = substr_count($animal, " ");
