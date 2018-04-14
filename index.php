@@ -23,6 +23,7 @@ foreach ($countries as $country => $animals) {
 //            echo $animal;
             list($word1[], $word2[]) = explode(' ', $animal);
             list($countries2[]) = explode(' ', $country);
+//            break;
         }
     }
 }
@@ -32,8 +33,12 @@ shuffle($word2);
 $i = 0;
 
 foreach ($word1 as $key => $word) {
-    echo "<h2>$countries2[$i]</h2>";
+    $not_repeat = array_unique($countries2);
+    if ($not_repeat[$i] == "") {
+        echo ", ";
+    } else {
+        echo "<h2>$not_repeat[$i]</h2>";
+    }
     $i++;
-    echo $word . " " . $word2[$key] . "\n";
+    echo $word . " " . $word2[$key];
 }
-
